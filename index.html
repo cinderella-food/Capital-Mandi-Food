@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مندي العاصمة | المنيو</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF3E7;
+    --paper:#FFFFFF;
+    --terracotta:#C1440E;
+    --terracotta-dark:#9A3509;
+    --saffron:#E8A23B;
+    --ink:#2B1B12;
+    --muted:#8A6F5C;
+    --line:#EAD9C4;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Tajawal',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+  }
+
+  /* ===== Header ===== */
+  header{
+    position:relative;
+    padding:48px 20px 70px;
+    text-align:center;
+    background:var(--terracotta);
+    color:var(--cream);
+    overflow:hidden;
+  }
+  /* signature ribbon shapes, echoing the logo's banner */
+  header::before{
+    content:"";
+    position:absolute;
+    top:0; left:0; right:0;
+    height:14px;
+    background:var(--saffron);
+  }
+  header::after{
+    content:"";
+    position:absolute;
+    bottom:-1px; left:0; right:0;
+    height:46px;
+    background:var(--cream);
+    border-radius:50% 50% 0 0 / 100% 100% 0 0;
+    transform:scaleX(1.3);
+  }
+  .brand{position:relative;z-index:2;}
+  .brand .logo-wrap{
+    width:128px;height:128px;
+    margin:0 auto 18px;
+    border-radius:50%;
+    background:var(--cream);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:4px solid var(--saffron);
+    overflow:hidden;
+  }
+  .brand .logo-wrap img{
+    width:104%;
+    height:104%;
+    object-fit:cover;
+  }
+  .brand h1{
+    font-family:'Cairo',sans-serif;
+    font-weight:800;
+    font-size:clamp(2.2rem, 6vw, 3.6rem);
+    letter-spacing:1px;
+    color:var(--cream);
+  }
+  .brand p{
+    margin-top:10px;
+    font-size:1.05rem;
+    font-weight:500;
+    color:#FBE3CC;
+  }
+  .brand .badge{
+    display:inline-block;
+    margin-top:18px;
+    background:var(--saffron);
+    color:var(--terracotta-dark);
+    font-weight:800;
+    font-size:.9rem;
+    padding:8px 24px;
+    border-radius:6px;
+    letter-spacing:1px;
+  }
+
+  /* ===== Sticky Nav ===== */
+  nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--paper);
+    border-bottom:2px solid var(--line);
+  }
+  nav .wrap{
+    max-width:1200px;
+    margin:0 auto;
+    display:flex;
+    overflow-x:auto;
+    gap:4px;
+    padding:10px 14px;
+    scrollbar-width:none;
+  }
+  nav .wrap::-webkit-scrollbar{display:none;}
+  nav a{
+    flex:0 0 auto;
+    color:var(--ink);
+    text-decoration:none;
+    font-weight:700;
+    font-size:.92rem;
+    padding:10px 18px;
+    border-radius:6px;
+    white-space:nowrap;
+    transition:.2s;
+    border-bottom:3px solid transparent;
+  }
+  nav a:hover{
+    background:var(--cream);
+  }
+  nav a.active{
+    color:var(--terracotta);
+    border-bottom:3px solid var(--terracotta);
+  }
+
+  /* ===== Sections ===== */
+  main{max-width:1200px;margin:0 auto;padding:0 18px;}
+
+  .section{
+    padding:54px 0 20px;
+    border-bottom:1px solid var(--line);
+  }
+  .section:last-of-type{border-bottom:none;}
+
+  .section-head{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:30px;
+  }
+  .section-head .dot{
+    width:6px;
+    height:36px;
+    border-radius:3px;
+    background:var(--terracotta);
+    flex:0 0 auto;
+  }
+  .section-head h2{
+    font-family:'Cairo',sans-serif;
+    font-weight:800;
+    font-size:clamp(1.5rem, 4vw, 2.1rem);
+    color:var(--ink);
+  }
+  .section-head .rule{
+    flex:1;
+    height:1px;
+    background:var(--line);
+  }
+
+  /* ===== Grid of cards ===== */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
+    gap:18px;
+  }
+
+  .card{
+    background:var(--paper);
+    border-radius:14px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    display:flex;
+    flex-direction:column;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(43,27,18,.08);
+  }
+  .card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    background:var(--cream);
+  }
+  .card .body{
+    padding:14px 16px 18px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    flex:1;
+  }
+  .card .title-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:10px;
+    padding-bottom:8px;
+    border-bottom:2px solid var(--saffron);
+  }
+  .card h3{
+    font-family:'Cairo',sans-serif;
+    font-weight:800;
+    font-size:1.08rem;
+    color:var(--ink);
+  }
+  .card .price{
+    background:var(--terracotta);
+    color:#fff;
+    font-weight:800;
+    font-size:.92rem;
+    padding:5px 12px;
+    border-radius:6px;
+    white-space:nowrap;
+    flex:0 0 auto;
+  }
+  .card .desc{
+    font-size:.88rem;
+    color:var(--muted);
+    line-height:1.7;
+  }
+  .card .save{
+    align-self:flex-start;
+    background:var(--saffron);
+    color:var(--terracotta-dark);
+    font-size:.78rem;
+    font-weight:800;
+    padding:3px 10px;
+    border-radius:4px;
+  }
+
+  /* Price table style cards (multi-size) */
+  .price-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px 18px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    transition:.2s;
+  }
+  .price-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(43,27,18,.08);
+  }
+  .price-card img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:4px;
+  }
+  .price-card h3{
+    font-family:'Cairo',sans-serif;
+    font-weight:800;
+    color:var(--ink);
+    font-size:1.05rem;
+    padding-bottom:8px;
+    border-bottom:2px solid var(--saffron);
+  }
+  .sizes{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+
+  /* size-pick radios */
+  .size-pick label{
+    flex:1;
+    min-width:80px;
+    text-align:center;
+    background:var(--cream);
+    border:2px solid var(--line);
+    border-radius:8px;
+    padding:8px 6px;
+    font-size:.85rem;
+    font-weight:700;
+    color:var(--ink);
+    cursor:pointer;
+    transition:.15s;
+  }
+  .size-pick label b{display:block;color:var(--terracotta);font-size:.95rem;margin-top:2px;}
+  .size-pick input{display:none;}
+  .size-pick input:checked + label{
+    border-color:var(--terracotta);
+    background:#FCEADB;
+  }
+
+  /* Simple item rows (additions) */
+  .addons-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(220px,1fr));
+    gap:12px;
+  }
+  .addon-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:12px 16px;
+    font-weight:600;
+    font-size:.95rem;
+    gap:8px;
+  }
+  .addon-row span:first-child{flex:1;}
+  .addon-row .p{
+    color:var(--terracotta);
+    font-weight:800;
+    background:var(--cream);
+    border-radius:6px;
+    padding:4px 10px;
+    font-size:.9rem;
+  }
+
+  /* ===== Add to cart button ===== */
+  .add-btn{
+    margin-top:auto;
+    background:var(--terracotta);
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    padding:10px 14px;
+    font-family:'Tajawal',sans-serif;
+    font-weight:700;
+    font-size:.9rem;
+    cursor:pointer;
+    transition:.2s;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+  }
+  .add-btn:hover{background:var(--terracotta-dark);}
+  .add-btn:active{transform:scale(.97);}
+  .add-btn.added{background:#3F8C4B;}
+  .price-card .add-btn{margin-top:4px;}
+
+  /* ===== Floating cart button ===== */
+  .cart-btn{
+    position:fixed;
+    bottom:22px;
+    right:22px;
+    background:var(--terracotta);
+    color:#fff;
+    border:none;
+    border-radius:999px;
+    padding:14px 22px;
+    font-family:'Cairo',sans-serif;
+    font-weight:800;
+    font-size:1rem;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+    box-shadow:0 4px 14px rgba(43,27,18,.25);
+    z-index:60;
+    transition:.2s;
+  }
+  .cart-btn:hover{background:var(--terracotta-dark);}
+  .cart-btn .count{
+    background:var(--saffron);
+    color:var(--terracotta-dark);
+    border-radius:50%;
+    min-width:26px;height:26px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:.9rem;
+    padding:0 4px;
+  }
+
+  /* ===== Overlay & drawer ===== */
+  .overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(43,27,18,.45);
+    z-index:90;
+    opacity:0;
+    pointer-events:none;
+    transition:.3s;
+  }
+  .overlay.show{opacity:1;pointer-events:auto;}
+
+  .drawer{
+    position:fixed;
+    top:0;
+    right:-100%;
+    width:min(420px, 100%);
+    height:100%;
+    background:var(--cream);
+    z-index:95;
+    transition:right .35s ease;
+    display:flex;
+    flex-direction:column;
+    box-shadow:-6px 0 24px rgba(43,27,18,.15);
+    border-left:1px solid var(--line);
+  }
+  .drawer.show{right:0;}
+
+  .drawer-head{
+    background:var(--terracotta);
+    color:#fff;
+    padding:18px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .drawer-head h3{
+    font-family:'Cairo',sans-serif;
+    font-weight:800;
+    color:#fff;
+    font-size:1.2rem;
+  }
+  .drawer-head button{
+    background:none;
+    border:none;
+    color:#fff;
+    font-size:1.5rem;
+    cursor:pointer;
+    line-height:1;
+  }
+
+  .drawer-body{
+    flex:1;
+    overflow-y:auto;
+    padding:16px 20px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+
+  .empty-cart{
+    text-align:center;
+    color:var(--muted);
+    padding:40px 10px;
+    font-weight:600;
+  }
+
+  .cart-item{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:12px 14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+  }
+  .cart-item .ci-info{flex:1;}
+  .cart-item h4{
+    font-family:'Cairo',sans-serif;
+    font-weight:800;
+    color:var(--ink);
+    font-size:.98rem;
+  }
+  .cart-item .ci-price{
+    color:var(--terracotta);
+    font-weight:800;
+    font-size:.9rem;
+    margin-top:4px;
+  }
+  .qty-ctrl{
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .qty-ctrl button{
+    width:30px;height:30px;
+    border-radius:6px;
+    border:1px solid var(--line);
+    background:var(--cream);
+    color:var(--ink);
+    font-weight:800;
+    font-size:1.1rem;
+    cursor:pointer;
+  }
+  .qty-ctrl button:hover{background:var(--saffron);}
+  .qty-ctrl span{font-weight:800;color:var(--ink);min-width:18px;text-align:center;}
+  .remove-item{
+    background:none;border:none;color:#C0392B;font-size:1.2rem;cursor:pointer;
+    flex:0 0 auto;
+  }
+
+  /* Notes / addons section inside drawer */
+  .drawer-section{
+    border-top:1px dashed var(--line);
+    padding-top:14px;
+    margin-top:6px;
+  }
+  .drawer-section h4{
+    font-family:'Cairo',sans-serif;
+    font-weight:800;
+    color:var(--ink);
+    margin-bottom:10px;
+    font-size:1rem;
+  }
+  .extra-list{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .extra-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:8px 12px;
+    font-size:.88rem;
+    font-weight:600;
+  }
+  .extra-row label{display:flex;align-items:center;gap:8px;cursor:pointer;flex:1;}
+  .extra-row input[type=checkbox]{width:18px;height:18px;accent-color:var(--terracotta);}
+  .extra-row .p{color:var(--terracotta);font-weight:800;}
+
+  .drawer-foot{
+    border-top:1px solid var(--line);
+    padding:16px 20px;
+    background:var(--paper);
+  }
+  .total-row{
+    display:flex;
+    justify-content:space-between;
+    font-family:'Cairo',sans-serif;
+    font-weight:800;
+    font-size:1.15rem;
+    color:var(--ink);
+    margin-bottom:12px;
+  }
+  .total-row b{color:var(--terracotta);}
+  .checkout-btn{
+    width:100%;
+    background:var(--terracotta);
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    padding:14px;
+    font-family:'Cairo',sans-serif;
+    font-weight:800;
+    font-size:1.05rem;
+    cursor:pointer;
+    transition:.2s;
+  }
+  .checkout-btn:hover{background:var(--terracotta-dark);}
+  .checkout-btn:disabled{background:#D8C4B2;color:#fff;cursor:not-allowed;}
+
+  /* ===== Order form modal ===== */
+  .modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(43,27,18,.5);
+    z-index:100;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    pointer-events:none;
+    transition:.3s;
+    padding:16px;
+  }
+  .modal-overlay.show{opacity:1;pointer-events:auto;}
+
+  .modal-box{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:14px;
+    max-width:480px;
+    width:100%;
+    max-height:90vh;
+    overflow-y:auto;
+    padding:24px;
+    transform:translateY(20px);
+    transition:.3s;
+  }
+  .modal-overlay.show .modal-box{transform:translateY(0);}
+
+  .modal-box h3{
+    font-family:'Cairo',sans-serif;
+    font-weight:800;
+    color:var(--ink);
+    font-size:1.3rem;
+    margin-bottom:6px;
+  }
+  .modal-box p.sub{
+    color:var(--muted);
+    font-size:.9rem;
+    margin-bottom:18px;
+  }
+  .form-group{margin-bottom:14px;}
+  .form-group label{
+    display:block;
+    font-weight:700;
+    color:var(--ink);
+    margin-bottom:6px;
+    font-size:.92rem;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select{
+    width:100%;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:11px 14px;
+    font-family:'Tajawal',sans-serif;
+    font-size:.95rem;
+    background:var(--cream);
+    color:var(--ink);
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus{
+    outline:2px solid var(--saffron);
+    border-color:var(--saffron);
+  }
+  .form-group textarea{resize:vertical;min-height:70px;}
+
+  .form-actions{
+    display:flex;
+    gap:10px;
+    margin-top:18px;
+  }
+  .form-actions button{
+    flex:1;
+    border:none;
+    border-radius:8px;
+    padding:13px;
+    font-family:'Cairo',sans-serif;
+    font-weight:800;
+    font-size:1rem;
+    cursor:pointer;
+    transition:.2s;
+  }
+  .btn-cancel{background:var(--cream);color:var(--ink);border:1px solid var(--line) !important;}
+  .btn-cancel:hover{background:#F0E2D1;}
+  .btn-submit{background:var(--terracotta);color:#fff;}
+  .btn-submit:hover{background:var(--terracotta-dark);}
+  .btn-submit:disabled{background:#D8C4B2;color:#fff;cursor:not-allowed;}
+
+  .status-msg{
+    text-align:center;
+    padding:30px 10px;
+  }
+  .status-msg .icon{font-size:3rem;margin-bottom:12px;}
+  .status-msg h3{color:var(--ink);margin-bottom:8px;}
+  .status-msg p{color:var(--muted);font-size:.92rem;}
+
+  /* Toast */
+  .toast{
+    position:fixed;
+    bottom:90px;
+    right:50%;
+    transform:translateX(50%);
+    background:var(--ink);
+    color:var(--cream);
+    padding:10px 22px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:.9rem;
+    z-index:120;
+    opacity:0;
+    pointer-events:none;
+    transition:.3s;
+  }
+  .toast.show{opacity:1;bottom:100px;}
+
+  /* ===== Location section ===== */
+  .location-wrap{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:24px;
+    align-items:stretch;
+  }
+  @media (max-width:800px){
+    .location-wrap{grid-template-columns:1fr;}
+  }
+  .map-frame{
+    border-radius:14px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    min-height:320px;
+  }
+  .map-frame iframe{
+    width:100%;
+    height:100%;
+    min-height:320px;
+    border:0;
+    display:block;
+  }
+  .info-card{
+    background:var(--terracotta);
+    border:1px solid var(--terracotta);
+    color:#fff;
+    border-radius:14px;
+    padding:28px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    justify-content:center;
+  }
+  .info-card h3{
+    font-family:'Cairo',sans-serif;
+    font-weight:800;
+    font-size:1.4rem;
+    color:var(--saffron);
+  }
+  .info-card .row{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:1rem;
+  }
+  .info-card .ic{
+    width:38px;height:38px;
+    border-radius:50%;
+    background:rgba(255,255,255,.15);
+    display:flex;align-items:center;justify-content:center;
+    flex:0 0 auto;
+    font-size:1.1rem;
+  }
+  .info-card a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:700;
+  }
+  .info-card a:hover{color:var(--saffron);}
+  .socials{
+    display:flex;
+    gap:10px;
+    margin-top:6px;
+    flex-wrap:wrap;
+  }
+  .socials a{
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.3);
+    color:#fff;
+    border-radius:8px;
+    padding:10px 16px;
+    font-weight:700;
+    font-size:.9rem;
+    text-decoration:none;
+    transition:.2s;
+  }
+  .socials a:hover{background:var(--saffron);color:var(--terracotta-dark);}
+
+  /* ===== Footer ===== */
+  footer{
+    background:var(--ink);
+    color:#D8C4B2;
+    text-align:center;
+    padding:28px 20px;
+    margin-top:40px;
+    font-size:.9rem;
+  }
+  footer b{color:var(--saffron);}
+
+  /* Back to top */
+  .top-btn{
+    position:fixed;
+    bottom:22px;
+    left:22px;
+    width:48px;height:48px;
+    border-radius:50%;
+    background:var(--paper);
+    border:1px solid var(--line);
+    color:var(--terracotta);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.3rem;
+    text-decoration:none;
+    box-shadow:0 2px 10px rgba(43,27,18,.12);
+    z-index:60;
+    opacity:0;
+    pointer-events:none;
+    transition:.3s;
+  }
+  .top-btn.show{opacity:1;pointer-events:auto;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="logo-wrap">
+      <img src="images/logo.jpg" alt="مندي العاصمة">
+    </div>
+    <h1>مندي العاصمة</h1>
+    <p>أشهى المنادي والمشاوي وأكلات البروستد والبرغر</p>
+    <div class="badge">المنيـــو الكامل</div>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#mandi">المنادي</a>
+    <a href="#chicken">الستربس والبروستد</a>
+    <a href="#sandwiches">السندويشات</a>
+    <a href="#burgers">البرغر</a>
+    <a href="#bowls">البولات</a>
+    <a href="#addons">الإضافات</a>
+    <a href="#location">الموقع</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ===================== المنادي ===================== -->
+  <section id="mandi" class="section">
+    <div class="section-head">
+      <div class="dot">🍗</div>
+      <h2>المنادي</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <img src="images/lamb-mandi-full.png" alt="مندي غنم كامل">
+        <div class="body">
+          <div class="title-row">
+            <h3>مندي غنم كامل عائلي</h3>
+            <span class="price">35,000</span>
+          </div>
+          <p class="desc">ذبيحة غنم كاملة + أرز مندي + مكسرات + سلطات ومخللات ومرقات متنوعة + صمون عراقي</p>
+          <button class="add-btn" data-name="مندي غنم كامل عائلي" data-price="35000" onclick="addToCart(this)">أضف للطلب 🛒</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/mandi-1.png" alt="مندي دجاج ربع + ستربس">
+        <div class="body">
+          <div class="title-row">
+            <h3>مندي دجاج مع ستربس</h3>
+            <span class="price">8,000</span>
+          </div>
+          <p class="desc">ربع دجاج مندي + 3 قطع ستربس مقرمشة فوق أرز مندي مع صوص خاص</p>
+          <button class="add-btn" data-name="مندي دجاج مع ستربس" data-price="8000" onclick="addToCart(this)">أضف للطلب 🛒</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/chicken-mandi-2.png" alt="مندي دجاج كامل">
+        <div class="body">
+          <div class="title-row">
+            <h3>مندي دجاج كامل</h3>
+            <span class="price">12,000</span>
+          </div>
+          <span class="save">عرض خاص</span>
+          <p class="desc">دجاجة مندي كاملة فوق أرز بسمتي أصفر مع فليفلة وبصل ونكهة المندي الأصلية</p>
+          <button class="add-btn" data-name="مندي دجاج كامل" data-price="12000" onclick="addToCart(this)">أضف للطلب 🛒</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/madbi-2.png" alt="مدبي دجاج عائلي">
+        <div class="body">
+          <div class="title-row">
+            <h3>مدبي دجاج عائلي</h3>
+            <span class="price">14,000</span>
+          </div>
+          <p class="desc">ربع دجاج مدبي + أرز عائلي كبير مع مخللات وصوصات (طحينة، لبن، شطة، تمر هندي)</p>
+          <button class="add-btn" data-name="مدبي دجاج عائلي" data-price="14000" onclick="addToCart(this)">أضف للطلب 🛒</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== الستربس والبروستد ===================== -->
+  <section id="chicken" class="section">
+    <div class="section-head">
+      <div class="dot">🍟</div>
+      <h2>الستربس والبروستد</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <img src="images/strips-fries.png" alt="ستربس مع فرايز">
+        <div class="body">
+          <div class="title-row">
+            <h3>ستربس + فرايز</h3>
+            <span class="price">5,000</span>
+          </div>
+          <p class="desc">قطع ستربس دجاج مقرمشة مع بطاطا فرايز وصوصين (شطة وجبن)</p>
+          <button class="add-btn" data-name="ستربس + فرايز" data-price="5000" onclick="addToCart(this)">أضف للطلب 🛒</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/chicken-box.png" alt="بروستد بوكس عائلي">
+        <div class="body">
+          <div class="title-row">
+            <h3>بروستد بوكس عائلي</h3>
+            <span class="price">17,000</span>
+          </div>
+          <p class="desc">قطع بروستد دجاج كبيرة + فرايز + 4 صمون برغر + 3 صوصات + بيبسي</p>
+          <button class="add-btn" data-name="بروستد بوكس عائلي" data-price="17000" onclick="addToCart(this)">أضف للطلب 🛒</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== السندويشات ===================== -->
+  <section id="sandwiches" class="section">
+    <div class="section-head">
+      <div class="dot">🥪</div>
+      <h2>السندويشات</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <img src="images/sandwich-chicken.png" alt="سندويش شاورما دجاج">
+        <div class="body">
+          <div class="title-row">
+            <h3>سندويش شاورما دجاج</h3>
+            <span class="price">3,000</span>
+          </div>
+          <p class="desc">شاورما دجاج مشوي مع فليفلة وصوص خاص في خبز سوبر مرشوش سمسم</p>
+          <button class="add-btn" data-name="سندويش شاورما دجاج" data-price="3000" onclick="addToCart(this)">أضف للطلب 🛒</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/chicken-sub.png" alt="سندويش دجاج مشوي">
+        <div class="body">
+          <div class="title-row">
+            <h3>سندويش دجاج مشوي بالذرة</h3>
+            <span class="price">3,500</span>
+          </div>
+          <p class="desc">صدور دجاج مشوية مع ذرة وخس وطماطم وصوص باربكيو في خبز سوبر</p>
+          <button class="add-btn" data-name="سندويش دجاج مشوي بالذرة" data-price="3500" onclick="addToCart(this)">أضف للطلب 🛒</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== البرغر ===================== -->
+  <section id="burgers" class="section">
+    <div class="section-head">
+      <div class="dot">🍔</div>
+      <h2>البرغر</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <img src="images/beef-burger.png" alt="برغر لحم">
+        <div class="body">
+          <div class="title-row">
+            <h3>برغر لحم خاص</h3>
+            <span class="price">4,000</span>
+          </div>
+          <p class="desc">قطعة لحم مشوية مع جبن مقرمش وخس وطماطم وصوص الثوم في صمون برغر</p>
+          <button class="add-btn" data-name="برغر لحم خاص" data-price="4000" onclick="addToCart(this)">أضف للطلب 🛒</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/chicken-burger.png" alt="برغر دجاج مشوي">
+        <div class="body">
+          <div class="title-row">
+            <h3>برغر دجاج مشوي</h3>
+            <span class="price">3,500</span>
+          </div>
+          <p class="desc">صدر دجاج مشوي مع خس وطماطم وصوص خردل وجبنة في صمون سمسم</p>
+          <button class="add-btn" data-name="برغر دجاج مشوي" data-price="3500" onclick="addToCart(this)">أضف للطلب 🛒</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/chicken-burger-2.png" alt="برغر دجاج كرسبي">
+        <div class="body">
+          <div class="title-row">
+            <h3>برغر دجاج كرسبي</h3>
+            <span class="price">3,500</span>
+          </div>
+          <p class="desc">قطعة دجاج كرسبي مقرمشة مع خس وطماطم وكاتشب ومايونيز في صمون سمسم</p>
+          <button class="add-btn" data-name="برغر دجاج كرسبي" data-price="3500" onclick="addToCart(this)">أضف للطلب 🛒</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== البولات ===================== -->
+  <section id="bowls" class="section">
+    <div class="section-head">
+      <div class="dot">🍚</div>
+      <h2>البولات</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <img src="images/rice-bowl.png" alt="بول دجاج مع أرز">
+        <div class="body">
+          <div class="title-row">
+            <h3>بول دجاج كرسبي بالأرز</h3>
+            <span class="price">6,000</span>
+          </div>
+          <p class="desc">أرز أصفر متبل + دجاج كرسبي مفروم + جلابينو + صوص جبن وصوص حار وصوص خاص</p>
+          <button class="add-btn" data-name="بول دجاج كرسبي بالأرز" data-price="6000" onclick="addToCart(this)">أضف للطلب 🛒</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== الإضافات ===================== -->
+  <section id="addons" class="section">
+    <div class="section-head">
+      <div class="dot">➕</div>
+      <h2>الإضافات</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="addons-grid">
+      <div class="addon-row"><span>بيبسي</span><span class="p">1,000</span><button class="add-btn" style="margin-right:8px;padding:6px 12px;font-size:.8rem;" data-name="بيبسي" data-price="1000" onclick="addToCart(this)">+ أضف</button></div>
+      <div class="addon-row"><span>ماء</span><span class="p">500</span><button class="add-btn" style="margin-right:8px;padding:6px 12px;font-size:.8rem;" data-name="ماء" data-price="500" onclick="addToCart(this)">+ أضف</button></div>
+      <div class="addon-row"><span>صمون عراقي</span><span class="p">500</span><button class="add-btn" style="margin-right:8px;padding:6px 12px;font-size:.8rem;" data-name="صمون عراقي" data-price="500" onclick="addToCart(this)">+ أضف</button></div>
+      <div class="addon-row"><span>صلصة الثوم</span><span class="p">500</span><button class="add-btn" style="margin-right:8px;padding:6px 12px;font-size:.8rem;" data-name="صلصة الثوم" data-price="500" onclick="addToCart(this)">+ أضف</button></div>
+      <div class="addon-row"><span>صلصة الشطة</span><span class="p">500</span><button class="add-btn" style="margin-right:8px;padding:6px 12px;font-size:.8rem;" data-name="صلصة الشطة" data-price="500" onclick="addToCart(this)">+ أضف</button></div>
+      <div class="addon-row"><span>صلصة الجبن</span><span class="p">1,000</span><button class="add-btn" style="margin-right:8px;padding:6px 12px;font-size:.8rem;" data-name="صلصة الجبن" data-price="1000" onclick="addToCart(this)">+ أضف</button></div>
+      <div class="addon-row"><span>سلطة مخللات</span><span class="p">1,000</span><button class="add-btn" style="margin-right:8px;padding:6px 12px;font-size:.8rem;" data-name="سلطة مخللات" data-price="1000" onclick="addToCart(this)">+ أضف</button></div>
+      <div class="addon-row"><span>طبق أرز إضافي</span><span class="p">2,000</span><button class="add-btn" style="margin-right:8px;padding:6px 12px;font-size:.8rem;" data-name="طبق أرز إضافي" data-price="2000" onclick="addToCart(this)">+ أضف</button></div>
+    </div>
+  </section>
+
+  <!-- ===================== الموقع ===================== -->
+  <section id="location" class="section">
+    <div class="section-head">
+      <div class="dot">📍</div>
+      <h2>موقعنا</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="location-wrap">
+      <div class="map-frame">
+        <iframe
+          src="https://www.google.com/maps?q=%D9%85%D8%B7%D8%B9%D9%85+%D9%85%D9%86%D8%AF%D9%8A+%D8%A7%D9%84%D8%B9%D8%A7%D8%B5%D9%85%D8%A9+%D8%A7%D9%84%D8%AF%D9%88%D8%B1%D8%A9+%D8%A7%D9%84%D8%A8%D9%88%D8%B9%D9%8A%D8%AB%D8%A9&output=embed"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <div class="info-card">
+        <h3>تواصل معنا</h3>
+        <div class="row"><span class="ic">📞</span><a href="tel:0770099548">0770 099 548</a></div>
+        <div class="row"><span class="ic">📞</span><a href="tel:0780099548">0780 099 548</a></div>
+        <div class="row"><span class="ic">📍</span><span>بغداد - الدورة - البوعيثة - قرب المجزرة</span></div>
+        <div class="row"><span class="ic">🚚</span><span>خدمة التوصيل متوفرة</span></div>
+        <div class="socials">
+          <a href="tel:0770099548">اتصل الآن</a>
+          <a href="https://www.google.com/maps?q=%D9%85%D8%B7%D8%B9%D9%85+%D9%85%D9%86%D8%AF%D9%8A+%D8%A7%D9%84%D8%B9%D8%A7%D8%B5%D9%85%D8%A9+%D8%A7%D9%84%D8%AF%D9%88%D8%B1%D8%A9+%D8%A7%D9%84%D8%A8%D9%88%D8%B9%D9%8A%D8%AB%D8%A9" target="_blank">الموقع على الخريطة</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  جميع الحقوق محفوظة &copy; <b>مطعم مندي العاصمة</b>
+</footer>
+
+<a href="#" class="top-btn" id="topBtn">⬆</a>
+
+<!-- ===================== Cart Button ===================== -->
+<button class="cart-btn" id="cartBtn" onclick="openCart()">
+  🛒 السلة <span class="count" id="cartCount">0</span>
+</button>
+
+<!-- ===================== Overlay ===================== -->
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+<!-- ===================== Cart Drawer ===================== -->
+<div class="drawer" id="cartDrawer">
+  <div class="drawer-head">
+    <h3>سلة طلباتك</h3>
+    <button onclick="closeAll()">×</button>
+  </div>
+  <div class="drawer-body" id="cartItems">
+    <p class="empty-cart">السلة فاضية، اختر وجباتك المفضلة من المنيو 🍽️</p>
+  </div>
+
+  <div class="drawer-section" style="padding:0 20px;" id="extrasSection" hidden>
+    <h4>إضافات يقدمها المطعم</h4>
+    <div class="extra-list" id="extrasList"></div>
+  </div>
+
+  <div class="drawer-foot">
+    <div class="total-row">
+      <span>الإجمالي</span>
+      <b id="cartTotal">0 د.ع</b>
+    </div>
+    <button class="checkout-btn" id="checkoutBtn" onclick="openOrderForm()" disabled>إكمال الطلب</button>
+  </div>
+</div>
+
+<!-- ===================== Order Form Modal ===================== -->
+<div class="modal-overlay" id="orderModal">
+  <div class="modal-box" id="orderModalBox">
+    <h3>بيانات التوصيل</h3>
+    <p class="sub">عبّي بياناتك ليصل طلبك بأسرع وقت</p>
+
+    <form id="orderForm" onsubmit="submitOrder(event)">
+      <div class="form-group">
+        <label for="custName">الاسم الكامل *</label>
+        <input type="text" id="custName" required placeholder="مثال: أحمد محمد">
+      </div>
+
+      <div class="form-group">
+        <label for="custPhone">رقم الهاتف *</label>
+        <input type="tel" id="custPhone" required placeholder="07xxxxxxxxx" pattern="[0-9+]{8,15}">
+      </div>
+
+      <div class="form-group">
+        <label for="custCity">المحافظة / المنطقة *</label>
+        <input type="text" id="custCity" required placeholder="مثال: بغداد - الدورة">
+      </div>
+
+      <div class="form-group">
+        <label for="custAddress">العنوان التفصيلي *</label>
+        <textarea id="custAddress" required placeholder="أقرب نقطة دالة، رقم الدار، الشارع..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="payMethod">طريقة الدفع</label>
+        <select id="payMethod">
+          <option value="نقدي عند التوصيل">نقدي عند التوصيل</option>
+          <option value="زين كاش">زين كاش</option>
+          <option value="آسيا حوالة">آسيا حوالة</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="custNotes">ملاحظات إضافية</label>
+        <textarea id="custNotes" placeholder="مثال: بدون بصل، توصيل بعد الساعة 6..."></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn-cancel" onclick="closeOrderForm()">رجوع</button>
+        <button type="submit" class="btn-submit" id="submitBtn">إرسال الطلب 🚀</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  // Highlight active nav link on scroll
+  const links = document.querySelectorAll('nav a');
+  const sections = document.querySelectorAll('main .section');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => {
+      const top = sec.offsetTop - 120;
+      if (window.scrollY >= top) current = sec.id;
+    });
+    links.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+    });
+
+    const topBtn = document.getElementById('topBtn');
+    if (window.scrollY > 400) topBtn.classList.add('show');
+    else topBtn.classList.remove('show');
+  });
+
+  /* =========================================================
+     CART / ORDER SYSTEM
+     ========================================================= */
+
+  // ----- Telegram Bot Config -----
+  const TELEGRAM_BOT_TOKEN = "7546948976:AAFPHTjFRKGAOQOgkyg6uEqXCjl_ca2nC2k";
+  const TELEGRAM_CHAT_ID   = "56081692";
+
+  // ----- Extras the restaurant offers -----
+  const EXTRAS = [
+    { name: "بيبسي", price: 1000 },
+    { name: "ماء", price: 500 },
+    { name: "صمون عراقي", price: 500 },
+    { name: "صلصة الثوم", price: 500 },
+    { name: "صلصة الشطة", price: 500 },
+    { name: "صلصة الجبن", price: 1000 },
+    { name: "سلطة مخللات", price: 1000 },
+    { name: "طبق أرز إضافي", price: 2000 },
+  ];
+
+  let cart = [];
+  let selectedExtras = {};
+
+  function fmt(n){
+    return n.toLocaleString('en-US') + ' د.ع';
+  }
+
+  function showToast(msg){
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 1600);
+  }
+
+  function addToCart(btn){
+    const name = btn.dataset.name;
+    const price = parseInt(btn.dataset.price, 10);
+    addItem(name, price);
+    flashButton(btn);
+  }
+
+  function addToCartSized(btn){
+    const group = btn.dataset.sizegroup;
+    const checked = document.querySelector(`input[name="${group}"]:checked`);
+    if(!checked) return;
+    const [sizeLabel, priceStr] = checked.value.split('|');
+    const price = parseInt(priceStr, 10);
+    const fullName = `${btn.dataset.name} (${sizeLabel})`;
+    addItem(fullName, price);
+    flashButton(btn);
+  }
+
+  function flashButton(btn){
+    const original = btn.textContent;
+    btn.classList.add('added');
+    btn.textContent = 'تمت الإضافة ✓';
+    setTimeout(() => {
+      btn.classList.remove('added');
+      btn.textContent = original;
+    }, 900);
+    showToast('تمت إضافة الطلب إلى السلة');
+  }
+
+  function addItem(name, price){
+    const existing = cart.find(i => i.name === name && i.price === price);
+    if(existing){
+      existing.qty += 1;
+    } else {
+      cart.push({ name, price, qty: 1 });
+    }
+    renderCart();
+  }
+
+  function changeQty(index, delta){
+    cart[index].qty += delta;
+    if(cart[index].qty <= 0){
+      cart.splice(index, 1);
+    }
+    renderCart();
+  }
+
+  function removeItem(index){
+    cart.splice(index, 1);
+    renderCart();
+  }
+
+  function getExtrasTotal(){
+    return EXTRAS.filter(e => selectedExtras[e.name]).reduce((s,e) => s + e.price, 0);
+  }
+
+  function getCartTotal(){
+    const itemsTotal = cart.reduce((s,i) => s + (i.price * i.qty), 0);
+    return itemsTotal + getExtrasTotal();
+  }
+
+  function renderCart(){
+    const wrap = document.getElementById('cartItems');
+    const extrasSection = document.getElementById('extrasSection');
+    const extrasList = document.getElementById('extrasList');
+    const totalEl = document.getElementById('cartTotal');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    const countEl = document.getElementById('cartCount');
+
+    if(cart.length === 0){
+      wrap.innerHTML = '<p class="empty-cart">السلة فاضية، اختر وجباتك المفضلة من المنيو 🍽️</p>';
+      extrasSection.hidden = true;
+      checkoutBtn.disabled = true;
+    } else {
+      wrap.innerHTML = cart.map((item, i) => `
+        <div class="cart-item">
+          <div class="ci-info">
+            <h4>${item.name}</h4>
+            <div class="ci-price">${fmt(item.price)} × ${item.qty}</div>
+          </div>
+          <div class="qty-ctrl">
+            <button onclick="changeQty(${i}, -1)">−</button>
+            <span>${item.qty}</span>
+            <button onclick="changeQty(${i}, 1)">+</button>
+          </div>
+          <button class="remove-item" onclick="removeItem(${i})" title="حذف">🗑️</button>
+        </div>
+      `).join('');
+      extrasSection.hidden = false;
+      checkoutBtn.disabled = false;
+    }
+
+    if(extrasList.innerHTML === ''){
+      extrasList.innerHTML = EXTRAS.map(e => `
+        <div class="extra-row">
+          <label>
+            <input type="checkbox" onchange="toggleExtra('${e.name}', this.checked)">
+            ${e.name}
+          </label>
+          <span class="p">${fmt(e.price)}</span>
+        </div>
+      `).join('');
+    }
+
+    totalEl.textContent = fmt(getCartTotal());
+
+    const count = cart.reduce((s,i) => s + i.qty, 0);
+    countEl.textContent = count;
+  }
+
+  function toggleExtra(name, checked){
+    selectedExtras[name] = checked;
+    document.getElementById('cartTotal').textContent = fmt(getCartTotal());
+  }
+
+  // ----- Drawer / Modal controls -----
+  function openCart(){
+    document.getElementById('cartDrawer').classList.add('show');
+    document.getElementById('overlay').classList.add('show');
+  }
+  function closeAll(){
+    document.getElementById('cartDrawer').classList.remove('show');
+    document.getElementById('overlay').classList.remove('show');
+    document.getElementById('orderModal').classList.remove('show');
+  }
+  function openOrderForm(){
+    if(cart.length === 0) return;
+    document.getElementById('orderModal').classList.add('show');
+  }
+  function closeOrderForm(){
+    document.getElementById('orderModal').classList.remove('show');
+  }
+
+  // ----- Build order message & send to Telegram -----
+  function buildOrderMessage(data){
+    let msg = `🆕 *طلب جديد - مطعم مندي العاصمة*\n\n`;
+    msg += `👤 *الاسم:* ${data.name}\n`;
+    msg += `📞 *الهاتف:* ${data.phone}\n`;
+    msg += `🏙️ *المنطقة:* ${data.city}\n`;
+    msg += `📍 *العنوان:* ${data.address}\n`;
+    msg += `💳 *الدفع:* ${data.payment}\n`;
+    if(data.notes) msg += `📝 *ملاحظات:* ${data.notes}\n`;
+    msg += `\n🍽️ *تفاصيل الطلب:*\n`;
+
+    cart.forEach(item => {
+      msg += `• ${item.name} × ${item.qty} = ${fmt(item.price * item.qty)}\n`;
+    });
+
+    const extras = EXTRAS.filter(e => selectedExtras[e.name]);
+    if(extras.length > 0){
+      msg += `\n➕ *إضافات:*\n`;
+      extras.forEach(e => {
+        msg += `• ${e.name} = ${fmt(e.price)}\n`;
+      });
+    }
+
+    msg += `\n💰 *الإجمالي: ${fmt(getCartTotal())}*`;
+    return msg;
+  }
+
+  async function submitOrder(e){
+    e.preventDefault();
+
+    const data = {
+      name: document.getElementById('custName').value.trim(),
+      phone: document.getElementById('custPhone').value.trim(),
+      city: document.getElementById('custCity').value.trim(),
+      address: document.getElementById('custAddress').value.trim(),
+      payment: document.getElementById('payMethod').value,
+      notes: document.getElementById('custNotes').value.trim(),
+    };
+
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'جاري الإرسال...';
+
+    const message = buildOrderMessage(data);
+
+    try{
+      const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text: message,
+          parse_mode: 'Markdown'
+        })
+      });
+
+      const result = await res.json();
+
+      if(result.ok){
+        showOrderSuccess();
+      } else {
+        throw new Error(result.description || 'فشل الإرسال');
+      }
+    } catch(err){
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'إرسال الطلب 🚀';
+      alert('حدث خطأ أثناء إرسال الطلب. تأكد من اتصالك بالإنترنت وحاول مرة أخرى.\n\n' + err.message);
+    }
+  }
+
+  function showOrderSuccess(){
+    const box = document.getElementById('orderModalBox');
+    box.innerHTML = `
+      <div class="status-msg">
+        <div class="icon">✅</div>
+        <h3>تم استلام طلبك بنجاح!</h3>
+        <p>سيتواصل معك فريق مندي العاصمة قريبًا لتأكيد الطلب والتوصيل.</p>
+        <div class="form-actions" style="margin-top:20px;">
+          <button type="button" class="btn-submit" style="flex:1;" onclick="location.reload()">طلب جديد</button>
+        </div>
+      </div>
+    `;
+    cart = [];
+    selectedExtras = {};
+  }
+</script>
+
+</body>
+</html>
