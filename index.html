@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مندي العاصمة | المنيو</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">\n<style>
+  :root{
+    --cream:#FBF3E7;
+    --paper:#FFFFFF;
+    --terracotta:#C1440E;
+    --terracotta-dark:#9A3509;
+    --saffron:#E8A23B;
+    --ink:#2B1B12;
+    --muted:#8A6F5C;
+    --line:#EAD9C4;
+    /* التدرج اللوني الفخم المستوحى من الصورة */
+    --gradient-gold: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+    --gradient-dark: linear-gradient(135deg, #2A2015 0%, #150E07 100%);
+    --gold-text: #D4AF37;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{\n    font-family:'Tajawal',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+    padding-bottom: 80px;
+  }
+
+  /* ===== Header ===== */
+  header{
+    position:relative;
+    padding:48px 20px 70px;
+    text-align:center;
+    background: var(--gradient-dark);
+    color:#fff;
+    border-bottom: 4px solid #BF953F;
+  }
+  header::after{
+    content:'';
+    position:absolute;
+    bottom:0;left:0;right:0;
+    height:8px;
+    background:var(--gradient-gold);
+  }
+  .header-content{
+    max-width:600px;
+    margin:0 auto;
+    position:relative;
+    z-index:2;
+  }
+  .logo-wrapper{
+    width:110px;height:110px;
+    margin:0 auto 16px;
+    border-radius:50%;
+    background:#fff;
+    padding:4px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.3);
+    border: 2px solid #BF953F;
+  }
+  .logo-wrapper img{
+    width:100%;height:100%;
+    object-fit:cover;
+    border-radius:50%;
+  }
+  header h1{
+    font-family:'Cairo',sans-serif;
+    font-size:32px;
+    font-weight:800;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom:6px;
+  }
+  header p{
+    font-size:15px;
+    color:#e0d0c0;
+    font-weight:500;
+    margin-bottom:20px;
+  }
+  .btn-scroll-menu{
+    display:inline-block;
+    padding:10px 24px;
+    background:var(--gradient-gold);
+    color:#150E07;
+    font-weight:700;
+    font-size:14px;
+    border-radius:30px;
+    text-decoration:none;
+    box-shadow:0 4px 15px rgba(191,149,63,0.4);
+    transition:0.3s;
+    cursor:pointer;
+  }
+  .btn-scroll-menu:hover{
+    transform:translateY(-2px);
+    box-shadow:0 6px 20px rgba(191,149,63,0.6);
+  }
+
+  /* ===== البحث الذكي الذكي ===== */
+  .search-container {
+    max-width: 800px;
+    margin: -25px auto 20px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+  }
+  .search-wrapper {
+    position: relative;
+    background: var(--paper);
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(43,27,18,0.15);
+    border: 2px solid #BF953F;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .search-input {
+    width: 100%;
+    padding: 15px 25px;
+    border: none;
+    outline: none;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 16px;
+    color: var(--ink);
+  }
+  .search-icon {
+    margin-left: 20px;
+    font-size: 20px;
+    color: #BF953F;
+  }
+
+  /* ===== Navigation ===== */
+  nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    box-shadow:0 4px 12px rgba(0,0,0,0.03);
+  }
+  .nav-scroll{
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    padding:14px 20px;
+    scroll-behavior:smooth;
+  }
+  .nav-scroll::-webkit-scrollbar{display:none;}
+  .nav-scroll a{
+    white-space:nowrap;
+    text-decoration:none;
+    color:var(--muted);
+    font-weight:700;
+    font-size:14px;
+    padding:8px 16px;
+    border-radius:20px;
+    background:rgba(138,111,92,0.06);
+    transition:0.2s;
+  }
+  .nav-scroll a:hover, .nav-scroll a.active{
+    background: var(--gradient-dark);
+    color: #FCF6BA;
+    border: 1px solid #BF953F;
+  }
+
+  /* ===== Main Content ===== */
+  main{
+    max-width:800px;
+    margin:0 auto;
+    padding:24px 20px;
+  }
+
+  section{
+    margin-bottom:40px;
+    scroll-margin-top:80px;
+  }
+  .section-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:20px;
+    border-bottom:2px solid var(--line);
+    padding-bottom:10px;
+  }
+  .section-title .icon{
+    font-size:24px;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .section-title h2{
+    font-family:'Cairo',sans-serif;
+    font-size:20px;
+    font-weight:800;
+    color:var(--ink);
+  }
+  .section-title .line{
+    flex:1;
+    height:1px;
+    background:var(--line);
+  }
+
+  /* ===== Menu Grid / Cards ===== */
+  .menu-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+  @media(min-width:600px){
+    .menu-grid{grid-template-columns:1fr 1fr;}
+  }
+
+  .item-card{
+    background:var(--paper);
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 6px 18px rgba(43,27,18,0.06);
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    border:1px solid rgba(234,217,196,0.5);
+    transition: 0.3s;
+  }
+  .item-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(191,149,63,0.15);
+    border-color: #BF953F;
+  }
+  .item-img-box{
+    position:relative;
+    width:100%;
+    padding-top:65%;
+    background:#fcfbf9;
+    border-bottom:1px solid var(--line);
+  }
+  .item-img-box img{
+    position:absolute;
+    top:0;left:0;width:100%;height:100%;
+    object-fit:cover;
+  }
+  .badge-discount{
+    position:absolute;
+    top:12px;right:12px;
+    background:var(--terracotta);
+    color:#fff;
+    font-size:11px;
+    font-weight:800;
+    padding:4px 10px;
+    border-radius:20px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.15);
+  }
+  .item-details{
+    padding:16px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+  }
+  .item-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:10px;
+    margin-bottom:8px;
+  }
+  .item-title{
+    font-size:16px;
+    font-weight:700;
+    color:var(--ink);
+  }
+  .item-price{
+    font-size:16px;
+    font-weight:800;
+    color:var(--terracotta);
+    white-space:nowrap;
+  }
+  .item-desc{
+    font-size:13px;
+    color:var(--muted);
+    line-height:1.5;
+    margin-bottom:16px;
+    flex:1;
+  }
+  .item-actions{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:auto;
+  }
+
+  /* ===== Quantity Controls ===== */
+  .btn-add-cart{
+    width:100%;
+    padding:10px 16px;
+    background: var(--gradient-gold);
+    color:#150E07;
+    border:none;
+    border-radius:25px;
+    font-family:'Tajawal',sans-serif;
+    font-weight:700;
+    font-size:13px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    transition:0.2s;
+    box-shadow: 0 4px 10px rgba(191,149,63,0.2);
+  }
+  .btn-add-cart:hover{background:var(--gradient-dark); color: #FCF6BA; border: 1px solid #BF953F;}
+
+  .qty-controls{
+    display:none;
+    align-items:center;
+    justify-content:space-between;
+    width:100%;
+    background:#f5ede4;
+    border-radius:25px;
+    padding:2px;
+  }
+  .btn-qty{
+    width:36px;height:36px;
+    border-radius:50%;
+    border:none;
+    background:var(--paper);
+    color:var(--ink);
+    font-size:18px;
+    font-weight:700;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 2px 6px rgba(0,0,0,0.05);
+    transition:0.1s;
+  }
+  .btn-qty:active{transform:scale(0.9);}
+  .qty-val{
+    font-weight:700;
+    font-size:15px;
+    color:var(--ink);
+    min-width:24px;
+    text-align:center;
+  }
+
+  /* ===== Addons Grid (Simple Items) ===== */
+  .addons-list{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+  @media(min-width:500px){
+    .addons-list{grid-template-columns:1fr 1fr;}
+  }
+  .addon-card{
+    background:var(--paper);
+    border-radius:12px;
+    padding:12px 16px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 4px 12px rgba(43,27,18,0.04);
+  }
+  .addon-info{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+  }
+  .addon-name{font-size:14px;font-weight:700;}
+  .addon-price{font-size:13px;font-weight:700;color:var(--terracotta);}
+  .addon-card .btn-add-cart{width:auto;padding:6px 14px;}
+  .addon-card .qty-controls{width:110px;}
+
+  /* ===== Location Section ===== */
+  .location-box{
+    background:var(--paper);
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 6px 18px rgba(43,27,18,0.06);
+    display:grid;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:600px){
+    .location-box{grid-template-columns:1.2fr 1fr;}
+  }
+  .map-wrapper{
+    background:#e5e3df;
+    position:relative;
+    min-height:200px;
+  }
+  .map-wrapper iframe{
+    position:absolute;
+    top:0;left:0;width:100%;height:100%;
+    border:0;
+  }
+  .location-details{
+    padding:24px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:14px;
+  }
+  .location-details h3{
+    font-family:'Cairo',sans-serif;
+    font-size:18px;
+    font-weight:800;
+  }
+  .info-row{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    font-size:14px;
+    color:var(--ink);
+  }
+  .info-row .icon{font-size:16px;}
+  .info-row a{color:var(--terracotta);font-weight:700;text-decoration:none;}
+  .location-actions{
+    display:flex;
+    gap:10px;
+    margin-top:6px;
+  }
+  .btn-loc{
+    flex:1;
+    padding:10px 14px;
+    border-radius:25px;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:700;
+    text-align:center;
+    display:inline-block;
+  }
+  .btn-loc.primary{
+    background: var(--gradient-gold);
+    color:#150E07;
+    box-shadow: 0 4px 10px rgba(191,149,63,0.2);
+  }
+  .btn-loc.secondary{
+    background:#f5ede4;
+    color:var(--ink);
+  }
+
+  /* ===== Footer ===== */
+  footer{
+    text-align:center;
+    padding:30px 20px;
+    font-size:13px;
+    color:var(--muted);
+    border-top:1px solid var(--line);
+    background:#fcfbf9;
+  }
+
+  /* ===== Floating Cart Bar ===== */
+  .floating-cart-bar{
+    position:fixed;
+    bottom:0;left:0;right:0;
+    background: var(--gradient-dark);
+    color:#fff;
+    padding:14px 20px;
+    display:flex;
+    justify-content:between;
+    align-items:center;
+    box-shadow:0 -6px 20px rgba(0,0,0,0.15);
+    z-index:900;
+    transform:translateY(100%);
+    transition:transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-top: 3px solid #BF953F;
+  }
+  .floating-cart-bar.active{transform:translateY(0);}
+  .cart-bar-info{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .cart-bar-icon{
+    position:relative;
+    width:44px;height:44px;
+    background:rgba(255,255,255,0.1);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    border: 1px solid #BF953F;
+  }
+  .cart-badge{
+    position:absolute;
+    top:-4px;right:-4px;
+    background:var(--terracotta);
+    color:#fff;
+    font-size:11px;
+    font-weight:800;
+    width:20px;height:20px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .cart-bar-price-box{
+    display:flex;
+    flex-direction:column;
+  }
+  .cart-bar-label{font-size:11px;color:#c0b0a0;font-weight:500;}
+  .cart-bar-total{font-size:16px;font-weight:800;color: #FCF6BA;}
+  .btn-view-cart{
+    padding:10px 24px;
+    background: var(--gradient-gold);
+    color:#150E07;
+    border:none;
+    border-radius:25px;
+    font-family:'Tajawal',sans-serif;
+    font-weight:700;
+    font-size:14px;
+    cursor:pointer;
+    box-shadow:0 4px 12px rgba(191,149,63,0.3);
+  }
+
+  /* ===== Modals (Cart & Checkout) ===== */
+  .modal-overlay{
+    position:fixed;
+    top:0;bottom:0;left:0;right:0;
+    background:rgba(27,17,10,0.6);
+    backdrop-filter:blur(4px);
+    z-index:1000;
+    display:none;
+    opacity:0;
+    transition:opacity 0.2s ease;
+  }
+  .modal-overlay.active{display:block;opacity:1;}
+
+  .modal-box{
+    position:fixed;
+    bottom:0;left:0;right:0;
+    background:var(--paper);
+    border-top-left-radius:24px;
+    border-top-right-radius:24px;
+    max-height:85vh;
+    display:flex;
+    flex-direction:column;
+    z-index:1001;
+    transform:translateY(100%);
+    transition:transform 0.3s ease;
+    box-shadow:0 -10px 30px rgba(0,0,0,0.15);
+  }
+  @media(min-width:600px){
+    .modal-box{
+      max-width:500px;
+      margin:0 auto;
+      bottom:20px;
+      border-radius:24px;
+      max-height:80vh;
+      box-shadow:0 12px 40px rgba(0,0,0,0.25);
+    }
+  }
+  .modal-box.active{transform:translateY(0);}
+
+  .modal-header{
+    padding:18px 20px;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    justify-content:between;
+    align-items:center;
+  }
+  .modal-header h3{
+    font-family:'Cairo',sans-serif;
+    font-size:18px;
+    font-weight:800;
+  }
+  .btn-close-modal{
+    background:none;border:none;
+    font-size:22px;color:var(--muted);
+    cursor:pointer;padding:4px;
+  }
+
+  .modal-body{
+    padding:20px;
+    overflow-y:auto;
+    flex:1;
+  }
+
+  /* Cart List Items */
+  .cart-items-list{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    margin-bottom:20px;
+  }
+  .cart-item-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-bottom:14px;
+    border-bottom:1px dashed var(--line);
+  }
+  .cart-item-info{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    max-width:60%;
+  }
+  .cart-item-name{font-size:14px;font-weight:700;}
+  .cart-item-price{font-size:13px;color:var(--terracotta);font-weight:700;}
+  .cart-item-row .qty-controls{width:110px;display:flex;}
+  .cart-item-row .btn-qty{width:30px;height:30px;font-size:14px;}
+
+  .cart-empty-msg{
+    text-align:center;
+    padding:40px 20px;
+    color:var(--muted);
+  }
+  .cart-empty-msg .icon{font-size:48px;margin-bottom:10px;}
+
+  /* Checkout Form */
+  .form-group{
+    margin-bottom:16px;
+  }
+  .form-group label{
+    display:block;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:6px;
+    color:var(--ink);
+  }
+  .form-group input, .form-group textarea{
+    width:100%;
+    padding:11px 14px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    font-family:'Tajawal',sans-serif;
+    font-size:14px;
+    color:var(--ink);
+    background:#fcfbf9;
+    outline:none;
+    transition:0.2s;
+  }
+  .form-group input:focus, .form-group textarea:focus{
+    border-color: #BF953F;
+    background:#fff;
+    box-shadow:0 0 0 3px rgba(191,149,63,0.1);
+  }
+  .form-note{
+    font-size:11px;
+    color:var(--muted);
+    margin-top:4px;
+  }
+
+  .summary-box{
+    background:#f5ede4;
+    border-radius:12px;
+    padding:14px;
+    margin-top:16px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .summary-row{
+    display:flex;
+    justify-content:space-between;
+    font-size:14px;
+  }
+  .summary-row.total{
+    font-weight:800;
+    font-size:16px;
+    color:var(--ink);
+    border-top:1px solid var(--line);
+    padding-top:8px;
+    margin-top:4px;
+  }
+
+  .modal-footer{
+    padding:16px 20px;
+    border-top:1px solid var(--line);
+  }
+  .btn-primary-action{
+    width:100%;
+    padding:12px 20px;
+    background: var(--gradient-gold);
+    color:#150E07;
+    border:none;
+    border-radius:25px;
+    font-family:'Tajawal',sans-serif;
+    font-weight:700;
+    font-size:15px;
+    cursor:pointer;
+    box-shadow:0 4px 12px rgba(191,149,63,0.3);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+  }
+  .btn-primary-action:disabled{
+    background:var(--muted);
+    color:rgba(255,255,255,0.6);
+    cursor:not-allowed;
+    box-shadow:none;
+  }
+
+  /* Status Messages */
+  .status-msg{
+    text-align:center;
+    padding:30px 10px;
+  }
+  .status-msg .icon{
+    font-size:54px;
+    margin-bottom:14px;
+  }
+  .status-msg h3{
+    font-family:'Cairo',sans-serif;
+    font-size:20px;
+    font-weight:800;
+    margin-bottom:8px;
+  }
+  .status-msg p{
+    font-size:14px;
+    color:var(--muted);
+    margin-bottom:20px;
+  }
+  .form-actions{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .btn-secondary-action{
+    width:100%;
+    padding:11px 20px;
+    background:#f5ede4;
+    color:var(--ink);
+    border:none;
+    border-radius:25px;
+    font-family:'Tajawal',sans-serif;
+    font-weight:700;
+    font-size:14px;
+    cursor:pointer;
+    text-align:center;
+  }
+
+  /* ===== Quick Top Scroll ===== */
+  .btn-top-scroll{
+    position:fixed;
+    bottom:85px;left:20px;
+    width:40px;height:40px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    color:var(--ink);
+    font-weight:700;
+    box-shadow:0 4px 12px rgba(0,0,0,0.06);
+    z-index:800;
+    opacity:0;
+    transform:translateY(20px);
+    transition:0.3s;
+  }
+  .btn-top-scroll.active{opacity:1;transform:translateY(0);\n  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <div class="logo-wrapper">
+      <img src="logo.jpg" alt="مندي العاصمة">
+    </div>
+    <h1>مندي العاصمة</h1>
+    <p>أشهى المنادي والمشاوي وأكلات البروستد والبرغر</p>
+    <a href="#mandi" class="btn-scroll-menu">المنيـــو الكامل</a>
+  </div>
+</header>
+
+<div class="search-container">
+  <div class="search-wrapper">
+    <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن وجبتك المفضلة (مندي، برغر، ستربس...)...">
+    <span class="search-icon">🔍</span>
+  </div>
+</div>
+
+<nav id="stickyNav">
+  <div class="nav-scroll">
+    <a href="#mandi" class="nav-item active">المنادي</a>
+    <a href="#chicken" class="nav-item">الستربس والبروستد</a>
+    <a href="#sandwiches" class="nav-item">السندويشات</a>
+    <a href="#burgers" class="nav-item">البرغر</a>
+    <a href="#bowls" class="nav-item">البولات</a>
+    <a href="#addons" class="nav-item">الإضافات</a>
+    <a href="#location" class="nav-item">الموقع</a>
+  </div>
+</nav>
+
+<main>
+
+  <section id="mandi" class="menu-section">
+    <div class="section-title">
+      <span class="icon">🍗</span>
+      <h2>المنادي</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="menu-grid">
+      <div class="item-card" data-name="مندي غنم كامل عائلي قوزي ذبيحة">
+        <div class="item-img-box">
+          <img src="lamb-mandi-full.png" alt="مندي غنم كامل">
+        </div>
+        <div class="item-details">
+          <div class="item-header">
+            <h3 class="item-title">مندي غنم كامل عائلي</h3>
+            <span class="item-price" data-price="35000">35,000 د.ع</span>
+          </div>
+          <p class="item-desc">ذبيحة غنم كاملة + أرز مندي + مكسرات + سلطات ومخللات ومرقات متنوعة + صمون عراقي</p>
+          <div class="item-actions">
+            <button class="btn-add-cart" onclick="addItem('m1', 'مندي غنم كامل عائلي', 35000)">
+              <span>➕ إضافة للسلة</span>
+            </button>
+            <div class="qty-controls" id="controls-m1">
+              <button class="btn-qty" onclick="updateQty('m1', -1)">-</button>
+              <span class="qty-val" id="qty-m1">0</span>
+              <button class="btn-qty" onclick="updateQty('m1', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-name="مندي دجاج مع ستربس ربع">
+        <div class="item-img-box">
+          <img src="mandi-1.png" alt="مندي دجاج ربع + ستربس">
+        </div>
+        <div class="item-details">
+          <div class="item-header">
+            <h3 class="item-title">مندي دجاج مع ستربس</h3>
+            <span class="item-price" data-price="8000">8,000 د.ع</span>
+          </div>
+          <p class="item-desc">ربع دجاج مندي + 3 قطع ستربس مقرمشة فوق أرز مندي مع صوص خاص</p>
+          <div class="item-actions">
+            <button class="btn-add-cart" onclick="addItem('m2', 'مندي دجاج مع ستربس', 8000)">
+              <span>➕ إضافة للسلة</span>
+            </button>
+            <div class="qty-controls" id="controls-m2">
+              <button class="btn-qty" onclick="updateQty('m2', -1)">-</button>
+              <span class="qty-val" id="qty-m2">0</span>
+              <button class="btn-qty" onclick="updateQty('m2', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-name="مندي دجاج كامل عرض خاص">
+        <div class="item-img-box">
+          <img src="chicken-mandi-2.png" alt="مندي دجاج كامل">
+          <span class="badge-discount">عرض خاص</span>
+        </div>
+        <div class="item-details">
+          <div class="item-header">
+            <h3 class="item-title">مندي دجاج كامل</h3>
+            <span class="item-price" data-price="12000">12,000 د.ع</span>
+          </div>
+          <p class="item-desc">دجاجة مندي كاملة فوق أرز بسمتي أصفر مع فليفلة وبصل ونكهة المندي الأصلية</p>
+          <div class="item-actions">
+            <button class="btn-add-cart" onclick="addItem('m3', 'مندي دجاج كامل', 12000)">
+              <span>➕ إضافة للسلة</span>
+            </button>
+            <div class="qty-controls" id="controls-m3">
+              <button class="btn-qty" onclick="updateQty('m3', -1)">-</button>
+              <span class="qty-val" id="qty-m3">0</span>
+              <button class="btn-qty" onclick="updateQty('m3', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-name="مدبي دجاج عائلي ربع">
+        <div class="item-img-box">
+          <img src="madbi-2.png" alt="مدبي دجاج عائلي">
+        </div>
+        <div class="item-details">
+          <div class="item-header">
+            <h3 class="item-title">مدبي دجاج عائلي</h3>
+            <span class="item-price" data-price="14000">14,000 د.ع</span>
+          </div>
+          <p class="item-desc">ربع دجاج مدبي + أرز عائلي كبير مع مخللات وصوصات (طحينة، لبن، شطة، تمر هندي)</p>
+          <div class="item-actions">
+            <button class="btn-add-cart" onclick="addItem('m4', 'مدبي دجاج عائلي', 14000)">
+              <span>➕ إضافة للسلة</span>
+            </button>
+            <div class="qty-controls" id="controls-m4">
+              <button class="btn-qty" onclick="updateQty('m4', -1)">-</button>
+              <span class="qty-val" id="qty-m4">0</span>
+              <button class="btn-qty" onclick="updateQty('m4', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="chicken" class="menu-section">
+    <div class="section-title">
+      <span class="icon">🍟</span>
+      <h2>الستربس والبروستد</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="menu-grid">
+      <div class="item-card" data-name="ستربس فرايز بطاطا مقرمشة">
+        <div class="item-img-box">
+          <img src="strips-fries.png" alt="ستربس مع فرايز">
+        </div>
+        <div class="item-details">
+          <div class="item-header">
+            <h3 class="item-title">ستربس + فرايز</h3>
+            <span class="item-price" data-price="5000">5,000 د.ع</span>
+          </div>
+          <p class="item-desc">قطع ستربس دجاج مقرمشة مع بطاطا فرايز وصوصين (شطة وجبن)</p>
+          <div class="item-actions">
+            <button class="btn-add-cart" onclick="addItem('c1', 'ستربس + فرايز', 5000)">
+              <span>➕ إضافة للسلة</span>
+            </button>
+            <div class="qty-controls" id="controls-c1">
+              <button class="btn-qty" onclick="updateQty('c1', -1)">-</button>
+              <span class="qty-val" id="qty-c1">0</span>
+              <button class="btn-qty" onclick="updateQty('c1', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-name="بروستد بوكس عائلي دجاج بيبسي">
+        <div class="item-img-box">
+          <img src="chicken-box.png" alt="بروستد بوكس عائلي">
+        </div>
+        <div class="item-details">
+          <div class="item-header">
+            <h3 class="item-title">بروستد بوكس عائلي</h3>
+            <span class="item-price" data-price="17000">17,000 د.ع</span>
+          </div>
+          <p class="item-desc">قطع بروستد دجاج كبيرة + فرايز + 4 صمون برغر + 3 صوصات + بيبسي</p>
+          <div class="item-actions">
+            <button class="btn-add-cart" onclick="addItem('c2', 'بروستد بوكس عائلي', 17000)">
+              <span>➕ إضافة للسلة</span>
+            </button>
+            <div class="qty-controls" id="controls-c2">
+              <button class="btn-qty" onclick="updateQty('c2', -1)">-</button>
+              <span class="qty-val" id="qty-c2">0</span>
+              <button class="btn-qty" onclick="updateQty('c2', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sandwiches" class="menu-section">
+    <div class="section-title">
+      <span class="icon">🥪</span>
+      <h2>السندويشات</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="menu-grid">
+      <div class="item-card" data-name="سندويش شاورما دجاج مشوي">
+        <div class="item-img-box">
+          <img src="sandwich-chicken.png" alt="سندويش شاورما دجاج">
+        </div>
+        <div class="item-details">
+          <div class="item-header">
+            <h3 class="item-title">سندويش شاورما دجاج</h3>
+            <span class="item-price" data-price="3000">3,000 د.ع</span>
+          </div>
+          <p class="item-desc">شاورما دجاج مشوي مع فليفلة وصوص خاص في خبز سوبر مرشوش سمسم</p>
+          <div class="item-actions">
+            <button class="btn-add-cart" onclick="addItem('s1', 'سندويش شاورما دجاج', 3000)">
+              <span>➕ إضافة للسلة</span>
+            </button>
+            <div class="qty-controls" id="controls-s1">
+              <button class="btn-qty" onclick="updateQty('s1', -1)">-</button>
+              <span class="qty-val" id="qty-s1">0</span>
+              <button class="btn-qty" onclick="updateQty('s1', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-name="سندويش دجاج مشوي بالذرة باربكيو">
+        <div class="item-img-box">
+          <img src="chicken-sub.png" alt="سندويش دجاج مشوي">
+        </div>
+        <div class="item-details">
+          <div class="item-header">
+            <h3 class="item-title">سندويش دجاج مشوي بالذرة</h3>
+            <span class="item-price" data-price="3500">3,500 د.ع</span>
+          </div>
+          <p class="item-desc">صدور دجاج مشوية مع ذرة وخس وطماطم وصوص باربكيو في خبز سوبر</p>
+          <div class="item-actions">
+            <button class="btn-add-cart" onclick="addItem('s2', 'سندويش دجاج مشوي بالذرة', 3500)">
+              <span>➕ إضافة للسلة</span>
+            </button>
+            <div class="qty-controls" id="controls-s2">
+              <button class="btn-qty" onclick="updateQty('s2', -1)">-</button>
+              <span class="qty-val" id="qty-s2">0</span>
+              <button class="btn-qty" onclick="updateQty('s2', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="burgers" class="menu-section">
+    <div class="section-title">
+      <span class="icon">🍔</span>
+      <h2>البرغر</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="menu-grid">
+      <div class="item-card" data-name="برغر لحم خاص مشوي جبن ثوم">
+        <div class="item-img-box">
+          <img src="beef-burger.png" alt="برغر لحم">
+        </div>
+        <div class="item-details">
+          <div class="item-header">
+            <h3 class="item-title">برغر لحم خاص</h3>
+            <span class="item-price" data-price="4000">4,000 د.ع</span>
+          </div>
+          <p class="item-desc">قطعة لحم مشوية مع جبن مقرمش وخس وطماطم وصوص الثوم في صمون برغر</p>
+          <div class="item-actions">
+            <button class="btn-add-cart" onclick="addItem('b1', 'برغر لحم خاص', 4000)">
+              <span>➕ إضافة للسلة</span>
+            </button>
+            <div class="qty-controls" id="controls-b1">
+              <button class="btn-qty" onclick="updateQty('b1', -1)">-</button>
+              <span class="qty-val" id="qty-b1">0</span>
+              <button class="btn-qty" onclick="updateQty('b1', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-name="برغر دجاج مشوي خس خردل جبنة">
+        <div class="item-img-box">
+          <img src="chicken-burger.png" alt="برغر دجاج مشوي">
+        </div>
+        <div class="item-details">
+          <div class="item-header">
+            <h3 class="item-title">برغر دجاج مشوي</h3>
+            <span class="item-price" data-price="3500">3,500 د.ع</span>
+          </div>
+          <p class="item-desc">صدر دجاج مشوي مع خس وطماطم وصوص خردل وجبنة في صمون سمسم</p>
+          <div class="item-actions">
+            <button class="btn-add-cart" onclick="addItem('b2', 'برغر دجاج مشوي', 3500)">
+              <span>➕ إضافة للسلة</span>
+            </button>
+            <div class="qty-controls" id="controls-b2">
+              <button class="btn-qty" onclick="updateQty('b2', -1)">-</button>
+              <span class="qty-val" id="qty-b2">0</span>
+              <button class="btn-qty" onclick="updateQty('b2', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-card" data-name="برغر دجاج كرسبي مقرمش مايونيز كاتشب">
+        <div class="item-img-box">
+          <img src="chicken-burger-2.png" alt="برغر دجاج كرسبي">
+        </div>
+        <div class="item-details">
+          <div class="item-header">
+            <h3 class="item-title">برغر دجاج كرسبي</h3>
+            <span class="item-price" data-price="3500">3,500 د.ع</span>
+          </div>
+          <p class="item-desc">قطعة دجاج كرسبي مقرمشة مع خس وطماطم وكاتشب ومايونيز في صمون سمسم</p>
+          <div class="item-actions">
+            <button class="btn-add-cart" onclick="addItem('b3', 'برغر دجاج كرسبي', 3500)">
+              <span>➕ إضافة للسلة</span>
+            </button>
+            <div class="qty-controls" id="controls-b3">
+              <button class="btn-qty" onclick="updateQty('b3', -1)">-</button>
+              <span class="qty-val" id="qty-b3">0</span>
+              <button class="btn-qty" onclick="updateQty('b3', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="bowls" class="menu-section">
+    <div class="section-title">
+      <span class="icon">🍚</span>
+      <h2>البولات</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="menu-grid">
+      <div class="item-card" data-name="بول دجاج كرسبي بالأرز متبل جلابينو جبن">
+        <div class="item-img-box">
+          <img src="rice-bowl.png" alt="بول دجاج مع أرز">
+        </div>
+        <div class="item-details">
+          <div class="item-header">
+            <h3 class="item-title">بول دجاج كرسبي بالأرز</h3>
+            <span class="item-price" data-price="6000">6,000 د.ع</span>
+          </div>
+          <p class="item-desc">أرز أصفر متبل + دجاج كرسبي مفروم + جلابينو + صوص جبن وصوص حار وصوص خاص</p>
+          <div class="item-actions">
+            <button class="btn-add-cart" onclick="addItem('o1', 'بول دجاج كرسبي بالأرز', 6000)">
+              <span>➕ إضافة للسلة</span>
+            </button>
+            <div class="qty-controls" id="controls-o1">
+              <button class="btn-qty" onclick="updateQty('o1', -1)">-</button>
+              <span class="qty-val" id="qty-o1">0</span>
+              <button class="btn-qty" onclick="updateQty('o1', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="addons" class="menu-section">
+    <div class="section-title">
+      <span class="icon">➕</span>
+      <h2>الإضافات</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="addons-list">
+      <div class="addon-card" data-name="بيبسي مشروب غازي">
+        <div class="addon-info">
+          <span class="addon-name">بيبسي</span>
+          <span class="addon-price">1,000 د.ع</span>
+        </div>
+        <button class="btn-add-cart" id="add-a1" onclick="addItem('a1', 'بيبسي', 1000)">إضافة</button>
+        <div class="qty-controls" id="controls-a1">
+          <button class="btn-qty" onclick="updateQty('a1', -1)">-</button>
+          <span class="qty-val" id="qty-a1">0</span>
+          <button class="btn-qty" onclick="updateQty('a1', 1)">+</button>
+        </div>
+      </div>
+
+      <div class="addon-card" data-name="ماء مياه معدنية">
+        <div class="addon-info">
+          <span class="addon-name">ماء</span>
+          <span class="addon-price">500 د.ع</span>
+        </div>
+        <button class="btn-add-cart" id="add-a2" onclick="addItem('a2', 'ماء', 500)">إضافة</button>
+        <div class="qty-controls" id="controls-a2">
+          <button class="btn-qty" onclick="updateQty('a2', -1)">-</button>
+          <span class="qty-val" id="qty-a2">0</span>
+          <button class="btn-qty" onclick="updateQty('a2', 1)">+</button>
+        </div>
+      </div>
+
+      <div class="addon-card" data-name="صمون عراقي خبز">
+        <div class="addon-info">
+          <span class="addon-name">صمون عراقي</span>
+          <span class="addon-price">500 د.ع</span>
+        </div>
+        <button class="btn-add-cart" id="add-a3" onclick="addItem('a3', 'صمون عراقي', 500)">إضافة</button>
+        <div class="qty-controls" id="controls-a3">
+          <button class="btn-qty" onclick="updateQty('a3', -1)">-</button>
+          <span class="qty-val" id="qty-a3">0</span>
+          <button class="btn-qty" onclick="updateQty('a3', 1)">+</button>
+        </div>
+      </div>
+
+      <div class="addon-card" data-name="صلصة الثوم ثومية صوص">
+        <div class="addon-info">
+          <span class="addon-name">صلصة الثوم</span>
+          <span class="addon-price">500 د.ع</span>
+        </div>
+        <button class="btn-add-cart" id="add-a4" onclick="addItem('a4', 'صلصة الثوم', 500)">إضافة</button>
+        <div class="qty-controls" id="controls-a4">
+          <button class="btn-qty" onclick="updateQty('a4', -1)">-</button>
+          <span class="qty-val" id="qty-a4">0</span>
+          <button class="btn-qty" onclick="updateQty('a4', 1)">+</button>
+        </div>
+      </div>
+
+      <div class="addon-card" data-name="صلصة الشطة حار صوص">
+        <div class="addon-info">
+          <span class="addon-name">صلصة الشطة</span>
+          <span class="addon-price">500 د.ع</span>
+        </div>
+        <button class="btn-add-cart" id="add-a5" onclick="addItem('a5', 'صلصة الشطة', 500)">إضافة</button>
+        <div class="qty-controls" id="controls-a5">
+          <button class="btn-qty" onclick="updateQty('a5', -1)">-</button>
+          <span class="qty-val" id="qty-a5">0</span>
+          <button class="btn-qty" onclick="updateQty('a5', 1)">+</button>
+        </div>
+      </div>
+
+      <div class="addon-card" data-name="صلصة الجبن جبنة صوص">
+        <div class="addon-info">
+          <span class="addon-name">صلصة الجبن</span>
+          <span class="addon-price">1,000 د.ع</span>
+        </div>
+        <button class="btn-add-cart" id="add-a6" onclick="addItem('a6', 'صلصة الجبن', 1000)">إضافة</button>
+        <div class="qty-controls" id="controls-a6">
+          <button class="btn-qty" onclick="updateQty('a6', -1)">-</button>
+          <span class="qty-val" id="qty-a6">0</span>
+          <button class="btn-qty" onclick="updateQty('a6', 1)">+</button>
+        </div>
+      </div>
+
+      <div class="addon-card" data-name="سلطة مخللات ترشي">
+        <div class="addon-info">
+          <span class="addon-name">سلطة مخللات</span>
+          <span class="addon-price">1,000 د.ع</span>
+        </div>
+        <button class="btn-add-cart" id="add-a7" onclick="addItem('a7', 'سلطة مخللات', 1000)">إضافة</button>
+        <div class="qty-controls" id="controls-a7">
+          <button class="btn-qty" onclick="updateQty('a7', -1)">-</button>
+          <span class="qty-val" id="qty-a7">0</span>
+          <button class="btn-qty" onclick="updateQty('a7', 1)">+</button>
+        </div>
+      </div>
+
+      <div class="addon-card" data-name="طبق أرز إضافي تمن مندي">
+        <div class="addon-info">
+          <span class="addon-name">طبق أرز إضافي</span>
+          <span class="addon-price">2,000 د.ع</span>
+        </div>
+        <button class="btn-add-cart" id="add-a8" onclick="addItem('a8', 'طبق أرز إضافي', 2000)">إضافة</button>
+        <div class="qty-controls" id="controls-a8">
+          <button class="btn-qty" onclick="updateQty('a8', -1)">-</button>
+          <span class="qty-val" id="qty-a8">0</span>
+          <button class="btn-qty" onclick="updateQty('a8', 1)">+</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="location" class="menu-section">
+    <div class="section-title">
+      <span class="icon">📍</span>
+      <h2>موقعنا</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="location-box">
+      <div class="map-wrapper">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13348.917539075482!2d44.3986!3d33.2381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDE0JzE3LjIiTiA0NMDAlzIzJzU1LjAiRQ!5e0!3m2!1sar!2siq!4v1620000000000!5m2!1sar!2siq" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+
+      <div class="location-details">
+        <h3>تواصل معنا</h3>
+        <div class="info-row">
+          <span class="icon">📞</span>
+          <a href="tel:0770099548">0770 099 548</a>
+        </div>
+        <div class="info-row">
+          <span class="icon">📞</span>
+          <a href="tel:0780099548">0780 099 548</a>
+        </div>
+        <div class="info-row">
+          <span class="icon">📍</span>
+          <span>بغداد - الدورة - البوعيثة - قرب المجزرة</span>
+        </div>
+        <div class="info-row">
+          <span class="icon">🚚</span>
+          <span>خدمة التوصيل متوفرة لكافة المناطق القريبة</span>
+        </div>
+        <div class="location-actions">
+          <a href="tel:0770099548" class="btn-loc primary">اتصل الآن 📞</a>
+          <a href="https://maps.google.com/?q=33.2381,44.3986" target="_blank" class="btn-loc secondary">الموقع على الخريطة 🗺️</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  جميع الحقوق محفوظة © <b style="color: #BF953F;">مطعم مندي العاصمة</b> ٢٠٢٦
+</footer>
+
+<a href="#" class="btn-top-scroll" id="topScroll">▲</a>
+
+<div class="floating-cart-bar" id="cartBar">
+  <div class="cart-bar-info">
+    <div class="cart-bar-icon">
+      🛒
+      <span class="cart-badge" id="cartBadgeCount">0</span>
+    </div>
+    <div class="cart-bar-price-box">
+      <span class="cart-bar-label">إجمالي الطلب</span>
+      <span class="cart-bar-total" id="cartBarTotal">0 د.ع</span>
+    </div>
+  </div>
+  <button class="btn-view-cart" onclick="openCartModal()">عرض السلة 🍽️</button>
+</div>
+
+<div class="modal-overlay" id="modalOverlay" onclick="closeAllModals()"></div>
+
+<div class="modal-box" id="cartModal">
+  <div class="modal-header">
+    <h3>سلة طلباتك</h3>
+    <button class="btn-close-modal" onclick="closeAllModals()">✕</button>
+  </div>
+  <div class="modal-body" id="cartModalBody">
+    </div>
+  <div class="modal-footer" id="cartModalFooter">
+    <button class="btn-primary-action" onclick="openCheckoutModal()">تابع كتابة بيانات التوصيل 🚚</button>
+  </div>
+</div>
+
+<div class="modal-box" id="checkoutModal">
+  <div class="modal-header">
+    <h3>بيانات التوصيل</h3>
+    <button class="btn-close-modal" onclick="closeAllModals()">✕</button>
+  </div>
+  <div class="modal-body" id="orderModalBox">
+    <p style="font-size:13px; color:var(--muted); margin-bottom:16px;">عبّي بياناتك ليصل طلبك بأسرع وقت</p>
+    
+    <div class="form-group">
+      <label>الاسم الكريم *</label>
+      <input type="text" id="custName" placeholder="اكتب اسمك الكامل هنا">
+    </div>
+    <div class="form-group">
+      <label>رقم الهاتف الأساسي *</label>
+      <input type="tel" id="custPhone1" placeholder="07xxxxxxxx">
+    </div>
+    <div class="form-group">
+      <label>رقم هاتف ثانٍ (احتياطي) *</label>
+      <input type="tel" id="custPhone2" placeholder="07xxxxxxxx">
+    </div>
+    <div class="form-group">
+      <label>العنوان بالتفصيل (المنطقة / قرب معلم معروف) *</label>
+      <textarea id="custAddress" rows="3" placeholder="مثال: الدورة، شارع اليرموك، مقابل صيدلية..."></textarea>
+    </div>
+    <div class="form-group">
+      <label>ملاحظات إضافية مع الطلب (اختياري)</label>
+      <input type="text" id="custNotes" placeholder="مثال: زيادة صلصة ثوم، الرز بدون فلفل حار...">
+    </div>
+
+    <div class="summary-box">
+      <div class="summary-row">
+        <span>عدد المواد:</span>
+        <span id="summaryCount">0</span>
+      </div>
+      <div class="summary-row total">
+        <span>الحساب الإجمالي:</span>
+        <span id="summaryTotal">0 د.ع</span>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer" id="checkoutModalFooter">
+    <button class="btn-primary-action" id="submitBtn" onclick="submitOrder()">إرسال الطلب عبر الواتساب 🚀</button>
+  </div>
+</div>
+
+<script>
+  // ===== إعدادات التلغرام المباشرة للبوت الخاص بك =====
+  const TELEGRAM_BOT_TOKEN = '7611800160:AAGYd7YQit-g1Z
